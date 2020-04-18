@@ -159,7 +159,6 @@ public class War {
                 System.out.println("GameOver!\n"+name1+" wins the Game.");
                 break;
             }
-
             play = sc.nextInt();
         } while (play == 1);
         

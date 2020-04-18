@@ -12,8 +12,19 @@ public class Hand {
    }
    
   
-   public void clear() {
+   public boolean clear() {
+       if(hand.isEmpty())
+      {
+          return false;
+      }
+       else{
       hand.clear();
+      if(hand.isEmpty())
+      {
+          return true;
+      }
+      return false;
+       }
    }
 
     public List getHand() {
@@ -33,10 +44,30 @@ public class Hand {
           hand.add(c);
    }
 
-   public void removeCard(Object c) {
+   public boolean removeCard(Object c) {
       hand.remove(c);
+      boolean bool=false;
+      if(!(hand.get(0)==c))
+      {
+          bool= true;
+      }
+      else {
+      bool= false;
+      }
+      return bool;
    }
-   
+   public boolean continuePlay(int a){
+    boolean bool=false;
+    if(a==1)
+    {
+        bool= true;
+    }
+    else
+    {
+        bool=false;
+    }
+    return  bool;
+   }
   
    public void removeCard(int position) {
       if (position < 0 || position >= hand.size())
@@ -44,17 +75,16 @@ public class Hand {
                + position);
       hand.remove(position);
    }
-
-   
-   public int getCardCount() {
-      return hand.size();
-   }
-   
+    
   
    public Card getCard(int position) {
      
        return (Card) hand.get(position);
    }
+    public void setCard(int index , Card card) {
+     
+    hand.add(index, card);
+    }
    
   
    
